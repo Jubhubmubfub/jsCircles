@@ -2,9 +2,13 @@
 <head>
 	<title>Javascript Box - OOP demo</title>
 	<style>
+		body {
+			margin:0px;
+		}
 		svg {
 			width:100%;
 			height:100%;
+			/*background:pink;*/
 		}
 	</style>
 </head>
@@ -19,7 +23,7 @@
 		this.info = {
 			cx: cx,
 			cy: cy
-			};
+		};
 
 		//private function that generates a random number
 		var randomNumberBetween = function(min, max){
@@ -40,6 +44,7 @@
 				  	r:  10,
 				  	id: html_id,
 				  	style: "fill: black"
+						// style: "fill: radial-gradient:(orange,purple)"
 				});
 
 			document.getElementById('svg').appendChild(circle);
@@ -49,10 +54,16 @@
 			var el = document.getElementById(html_id);
 
 			//see if the circle is going outside the browser. if it is, reverse the velocity
-			if( this.info.cx > document.body.clientWidth || this.info.cx < 0){
+			if( this.info.cx > (document.body.clientWidth - 5) || this.info.cx < 10){
 				this.info.velocity.x = this.info.velocity.x * -1;
 			}
-			if( this.info.cy > document.body.clientHeight || this.info.cy < 0){
+			// if( this.info.cy > (document.body.clientHeight + 150) || this.info.cy < 120){
+			// 	this.info.velocity.y = this.info.velocity.y * -1;
+			// }
+			// if( this.info.cx > (document.body.clientWidth + 100) || this.info.cx < 0){
+			// 	this.info.velocity.x = this.info.velocity.x * -1;
+			// }
+			if( this.info.cy > (document.body.clientHeight - 7.5) || this.info.cy < 10){
 				this.info.velocity.y = this.info.velocity.y * -1;
 			}
 
